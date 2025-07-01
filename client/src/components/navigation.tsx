@@ -29,37 +29,37 @@ export default function Navigation() {
           <div className="flex items-center space-x-6">
             <button 
               onClick={() => scrollToSection('education')}
-              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               About
             </button>
             <button 
               onClick={() => scrollToSection('skills')}
-              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               Skills
             </button>
             <button 
               onClick={() => scrollToSection('experience')}
-              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               Experience
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               Projects
             </button>
             <button 
               onClick={() => scrollToSection('blog')}
-              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               Blogs
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               Contact
             </button>
