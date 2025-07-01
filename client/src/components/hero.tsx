@@ -78,8 +78,8 @@ export default function Hero() {
                 initial={{ opacity: 0, rotateX: 90 }}
                 animate={{ opacity: 1, rotateX: 0 }}
                 exit={{ opacity: 0, rotateX: -90 }}
-                transition={{ duration: 0.2 }}
-                className="inline-block"
+                transition={{ duration: 0.1 }}
+                className="inline-block text-[#2095f3]"
               >
                 {roles[currentRoleIndex]}
               </motion.span>
