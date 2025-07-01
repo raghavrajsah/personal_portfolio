@@ -1,0 +1,40 @@
+**Refined prompt for the AI site-builder**
+
+> **Create a personal portfolio website** that feels premium and minimalist—think modern Apple or Stripe design language: plenty of white space, soft shadows, subtle animations, and a restrained but luxurious color palette (e.g., off-white background, charcoal text, one elegant accent color). The site must be fully responsive, WCAG-accessible, and fast-loading.
+
+### Required structure — in this exact order
+
+1. **Hero / Intro**
+   *Full-width banner with my headshot, name, one-line headline (e.g., “Full-Stack Engineer • ML Builder • Startup Optimist”), and a primary call-to-action button (“Download CV”).*
+
+2. **Contact & Socials**
+   *Icons + links for email, LinkedIn, GitHub, X/Twitter, and personal blog; include a working contact form that sends to my email.*
+
+3. **Education**
+   *Timeline or card layout listing degree(s), institution(s), honors, and dates.*
+
+4. **Skills**
+   *Grid of tech badges (Flutter, React, Spring, FastAPI, Kotlin, Python, Java, AWS, Docker, etc.) with hover tooltips.*
+
+5. **Experience**
+   *Vertical timeline or stacked cards showing role, company, dates, and 1-sentence impact statement for each position.*
+
+6. **Projects**
+   *Masonry or card grid with screenshot, title, brief description, tech stack chips, and “View on GitHub / Live Demo” links.*
+
+7. **Blogs & Publications**
+   *Auto-pull latest three posts from my Dev.to/Medium RSS; provide “View all” link to dedicated blog page.*
+
+8. **Footer**
+   *Repeat social icons, minimal copyright notice, and a dark-mode toggle.*
+
+### Additional requirements
+
+* **CMS or markdown support** so I can add/edit projects and blog posts without touching code.
+* Built with **Next.js + Tailwind CSS** (preferred) OR another modern stack that supports static export and easy hosting on Vercel/Netlify.
+* **SEO-friendly** meta tags and Open Graph images.
+* **Google Analytics** (or Plausible) snippet included.
+* Use **framer-motion** for gentle scroll-in animations; keep them subtle to preserve the “rich but not flashy” feel.
+* Deliver clean, well-commented code and a short README explaining how to run locally and deploy.
+
+“Please build the complete site, populate it with tasteful placeholder content and images, and output both a live preview link and the full source code repository.”
