@@ -1,24 +1,50 @@
 import { motion } from "framer-motion";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
-const skillsData = [
-  { name: "Flutter", emoji: "📱", tooltip: "Cross-platform mobile development framework" },
-  { name: "React", emoji: "⚛️", tooltip: "Frontend JavaScript library" },
-  { name: "Spring", emoji: "🍃", tooltip: "Java enterprise framework" },
-  { name: "FastAPI", emoji: "🚀", tooltip: "Modern Python web framework" },
-  { name: "Kotlin", emoji: "🎯", tooltip: "Modern programming language" },
-  { name: "Python", emoji: "🐍", tooltip: "Versatile programming language" },
-  { name: "Java", emoji: "☕", tooltip: "Enterprise programming language" },
-  { name: "AWS", emoji: "☁️", tooltip: "Amazon Web Services cloud platform" },
-  { name: "Docker", emoji: "🐳", tooltip: "Containerization platform" },
-  { name: "TypeScript", emoji: "📝", tooltip: "Typed JavaScript" },
-  { name: "Node.js", emoji: "🟢", tooltip: "JavaScript runtime" },
-  { name: "PostgreSQL", emoji: "🐘", tooltip: "Advanced relational database" },
-];
+const skillsData = {
+  "Programming Languages": [
+    { name: "Python", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
+    { name: "TypeScript", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
+    { name: "Java", color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300" },
+    { name: "Kotlin", color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300" },
+    { name: "JavaScript", color: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300" },
+  ],
+  "Frontend & Mobile": [
+    { name: "React", color: "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-300" },
+    { name: "Flutter", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
+    { name: "Next.js", color: "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300" },
+    { name: "Tailwind CSS", color: "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-300" },
+  ],
+  "Backend & APIs": [
+    { name: "Node.js", color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300" },
+    { name: "FastAPI", color: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-300" },
+    { name: "Spring Boot", color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300" },
+    { name: "Express.js", color: "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300" },
+  ],
+  "Databases": [
+    { name: "PostgreSQL", color: "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300" },
+    { name: "MongoDB", color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300" },
+    { name: "Redis", color: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300" },
+    { name: "MySQL", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
+  ],
+  "Cloud & DevOps": [
+    { name: "AWS", color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300" },
+    { name: "Docker", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
+    { name: "Kubernetes", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
+    { name: "GitHub Actions", color: "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300" },
+  ],
+  "Tools & Technologies": [
+    { name: "Git", color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300" },
+    { name: "Figma", color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300" },
+    { name: "Postman", color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300" },
+    { name: "Jira", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
+  ],
+};
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 bg-card">
+    <section id="skills" className="py-20 bg-muted/30">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
@@ -31,32 +57,41 @@ export default function Skills() {
           <p className="text-xl text-muted-foreground">Tools and technologies I work with</p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {skillsData.map((skill, index) => (
-            <Tooltip key={skill.name}>
-              <TooltipTrigger asChild>
-                <motion.div
-                  className="skill-badge bg-muted rounded-xl p-6 text-center shadow-sm hover:shadow-lg cursor-pointer group transition-all duration-300"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -8 }}
-                >
-                  <motion.div 
-                    className="text-3xl mb-3"
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                  >
-                    {skill.emoji}
-                  </motion.div>
-                  <p className="font-semibold text-foreground">{skill.name}</p>
-                </motion.div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{skill.tooltip}</p>
-              </TooltipContent>
-            </Tooltip>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {Object.entries(skillsData).map(([category, skills], categoryIndex) => (
+            <motion.div
+              key={category}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="text-lg font-semibold text-foreground">{category}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.map((skill, skillIndex) => (
+                      <motion.div
+                        key={skill.name}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
+                        viewport={{ once: true }}
+                      >
+                        <Badge 
+                          variant="secondary" 
+                          className={`${skill.color} font-medium hover:scale-105 transition-transform duration-200`}
+                        >
+                          {skill.name}
+                        </Badge>
+                      </motion.div>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
       </div>

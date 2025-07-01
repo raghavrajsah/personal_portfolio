@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Building2, Zap, Rocket } from "lucide-react";
 
 const experienceData = [
   {
@@ -8,18 +9,21 @@ const experienceData = [
     company: "TechFlow Solutions",
     dates: "2022 - Present",
     impact: "Led development of microservices architecture that improved system performance by 40% and reduced deployment time from 2 hours to 15 minutes.",
+    icon: Building2,
   },
   {
     role: "Machine Learning Engineer",
     company: "DataVision AI",
     dates: "2021 - 2022",
     impact: "Built predictive models that increased customer retention by 25% and developed real-time recommendation systems serving 1M+ daily users.",
+    icon: Zap,
   },
   {
     role: "Frontend Developer",
     company: "StartupLab Inc",
     dates: "2019 - 2021",
     impact: "Transformed user experience with React redesign, achieving 60% improvement in user engagement and 35% increase in conversion rates.",
+    icon: Rocket,
   },
 ];
 
@@ -65,7 +69,12 @@ export default function Experience() {
                       <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
                         <div>
                           <h3 className="text-2xl font-bold text-foreground mb-1">{exp.role}</h3>
-                          <p className="text-lg text-primary font-semibold">{exp.company}</p>
+                          <div className="flex items-center gap-3">
+                            <div className="p-2 bg-primary/10 rounded-lg">
+                              <exp.icon className="w-5 h-5 text-primary" />
+                            </div>
+                            <p className="text-lg text-primary font-semibold">{exp.company}</p>
+                          </div>
                         </div>
                         <Badge variant="secondary" className="text-sm font-medium px-4 py-2 mt-2 md:mt-0">
                           {exp.dates}

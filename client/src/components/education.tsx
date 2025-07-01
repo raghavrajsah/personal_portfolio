@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { GraduationCap, University } from "lucide-react";
 
 const educationData = [
   {
@@ -9,6 +10,7 @@ const educationData = [
     honors: "Summa Cum Laude • GPA: 3.9/4.0",
     description: "Specialized in Machine Learning and Distributed Systems. Thesis: \"Optimizing Neural Network Performance in Edge Computing Environments\"",
     dates: "2019 - 2021",
+    icon: GraduationCap,
   },
   {
     degree: "Bachelor of Science in Software Engineering",
@@ -16,6 +18,7 @@ const educationData = [
     honors: "Magna Cum Laude • Dean's List • Computer Science Honor Society",
     description: "Focus on full-stack development, algorithms, and software architecture. Senior project: E-commerce platform serving 10,000+ users",
     dates: "2015 - 2019",
+    icon: University,
   },
 ];
 
@@ -49,7 +52,12 @@ export default function Education() {
                   <div className="flex flex-col md:flex-row md:items-center justify-between">
                     <div className="flex-1">
                       <h3 className="text-2xl font-bold text-foreground mb-2">{edu.degree}</h3>
-                      <p className="text-lg text-primary font-semibold mb-2">{edu.institution}</p>
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="p-2 bg-primary/10 rounded-lg">
+                          <edu.icon className="w-5 h-5 text-primary" />
+                        </div>
+                        <p className="text-lg text-primary font-semibold">{edu.institution}</p>
+                      </div>
                       <p className="text-muted-foreground mb-4">{edu.honors}</p>
                       <p className="text-muted-foreground">{edu.description}</p>
                     </div>
