@@ -4,6 +4,7 @@ import { Download, ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { useState, useEffect } from "react";
+import profileImage from "@assets/IMG_6417_1751378252912.jpg";
 
 export default function Hero() {
   const roles = ["Full-Stack Engineer", "ML Builder", "Startup Optimist"];
@@ -48,7 +49,7 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <motion.img
-            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=200&h=200"
+            src={profileImage}
             alt="Alex Thompson headshot"
             className="w-24 h-24 rounded-full mx-auto mb-6 shadow-lg object-cover"
             initial={{ scale: 0.8, opacity: 0 }}
@@ -62,7 +63,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Alex Thompson
+            Raghav R. Sah
           </motion.h1>
 
           <motion.div
@@ -78,7 +79,7 @@ export default function Hero() {
                 animate={{ opacity: 1, rotateX: 0 }}
                 exit={{ opacity: 0, rotateX: -90 }}
                 transition={{ duration: 0.2 }}
-                className="inline-block text-[#2094f3]"
+                className="inline-block"
               >
                 {roles[currentRoleIndex]}
               </motion.span>
@@ -95,8 +96,7 @@ export default function Hero() {
             graduating in May 2026. With hands-on experience at Y Combinator and
             Silicon Valley startups, I bring professional expertise in software
             development, agile methodologies, and thriving in fast-paced
-            environments. I specialize in crafting clear, impactful solutions
-            and value concise communication in everything I build.
+            collaborative environments.
           </motion.p>
 
           <motion.div
