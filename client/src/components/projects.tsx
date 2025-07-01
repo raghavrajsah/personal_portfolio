@@ -83,7 +83,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-card">
+    <section id="projects" className="py-24">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"

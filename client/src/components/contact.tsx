@@ -90,7 +90,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-16 bg-card">
+    <section id="contact" className="py-24">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div 
           className="text-center"
