@@ -45,7 +45,7 @@ export default function Blog() {
   };
 
   return (
-    <section id="blogs" className="py-24">
+    <section id="blogs" className="py-20 bg-muted/30">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div 
           className="text-center mb-16"
