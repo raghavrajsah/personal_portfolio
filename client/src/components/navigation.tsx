@@ -17,16 +17,16 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-md border-b border-border/50 z-50 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-6 py-4">
+    <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-xl border-b border-gray-200/50 z-50 transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <button 
             onClick={() => scrollToSection('hero')}
-            className="text-xl font-semibold text-foreground hover:text-primary transition-colors"
+            className="text-xl font-bold text-foreground hover:text-primary transition-colors"
           >
             Alex Thompson
           </button>
-          <div className="flex items-center space-x-6">
+          <div className="flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('education')}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
@@ -74,6 +74,12 @@ export default function Navigation() {
               ) : (
                 <Moon className="w-5 h-5" />
               )}
+            </Button>
+            <Button
+              onClick={() => scrollToSection('contact')}
+              className="bg-primary text-primary-foreground px-6 py-2 text-sm font-semibold hover:bg-primary/90 transition-all shadow-md hover:shadow-lg rounded-full"
+            >
+              Get In Touch
             </Button>
           </div>
         </div>
