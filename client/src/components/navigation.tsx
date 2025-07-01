@@ -24,7 +24,7 @@ export default function Navigation() {
             onClick={() => scrollToSection('hero')}
             className="text-xl font-semibold text-foreground hover:text-primary transition-colors"
           >
-            Alex Thompson
+            Raghav R. Sah
           </button>
           <div className="flex items-center space-x-6">
             <button 
