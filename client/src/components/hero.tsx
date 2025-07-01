@@ -40,7 +40,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="pt-20 pb-16 px-6">
+    <section id="hero" className="pt-32 pb-16 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div
           className="text-center"
@@ -51,7 +51,7 @@ export default function Hero() {
           <motion.img
             src={profileImage}
             alt="Alex Thompson headshot"
-            className="w-24 h-24 rounded-full mx-auto mb-6 shadow-lg object-cover"
+            className="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg object-cover"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
