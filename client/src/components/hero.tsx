@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Download, ArrowRight } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 
 export default function Hero() {
   const handleDownloadCV = async () => {
@@ -53,13 +54,37 @@ export default function Hero() {
           </motion.h1>
           
           <motion.p 
-            className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto"
+            className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             Full-Stack Engineer • ML Builder • Startup Optimist
           </motion.p>
+
+          <motion.div 
+            className="flex justify-center items-center gap-6 mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+          >
+            <a 
+              href="https://github.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-3 bg-muted hover:bg-muted/80 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg"
+            >
+              <SiGithub className="w-6 h-6 text-foreground" />
+            </a>
+            <a 
+              href="https://linkedin.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-3 bg-muted hover:bg-muted/80 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg"
+            >
+              <SiLinkedin className="w-6 h-6 text-foreground" />
+            </a>
+          </motion.div>
           
           <motion.div 
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
@@ -81,7 +106,7 @@ export default function Hero() {
               className="text-primary font-semibold px-8 py-4 text-base border-2 border-primary hover:bg-primary hover:text-primary-foreground transition-all"
               size="lg"
             >
-              Get In Touch
+              Let's Connect
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </motion.div>

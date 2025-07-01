@@ -29,27 +29,38 @@ export default function Navigation() {
           <div className="flex items-center space-x-6">
             <button 
               onClick={() => scrollToSection('education')}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
             >
-              About
+              <span className="relative z-10">About</span>
+              <span className="absolute inset-0 bg-muted rounded-md scale-0 group-hover:scale-100 transition-transform duration-200 ease-out"></span>
+            </button>
+            <button 
+              onClick={() => scrollToSection('skills')}
+              className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
+            >
+              <span className="relative z-10">Skills</span>
+              <span className="absolute inset-0 bg-muted rounded-md scale-0 group-hover:scale-100 transition-transform duration-200 ease-out"></span>
             </button>
             <button 
               onClick={() => scrollToSection('experience')}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
             >
-              Experience
+              <span className="relative z-10">Experience</span>
+              <span className="absolute inset-0 bg-muted rounded-md scale-0 group-hover:scale-100 transition-transform duration-200 ease-out"></span>
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
             >
-              Projects
+              <span className="relative z-10">Projects</span>
+              <span className="absolute inset-0 bg-muted rounded-md scale-0 group-hover:scale-100 transition-transform duration-200 ease-out"></span>
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
             >
-              Contact
+              <span className="relative z-10">Contact</span>
+              <span className="absolute inset-0 bg-muted rounded-md scale-0 group-hover:scale-100 transition-transform duration-200 ease-out"></span>
             </button>
             <Button
               variant="ghost"
