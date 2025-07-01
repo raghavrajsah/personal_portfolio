@@ -29,38 +29,39 @@ export default function Navigation() {
           <div className="flex items-center space-x-6">
             <button 
               onClick={() => scrollToSection('education')}
-              className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
+              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg"
             >
-              <span className="relative z-10">About</span>
-              <span className="absolute inset-0 bg-muted rounded-md scale-0 group-hover:scale-100 transition-transform duration-200 ease-out"></span>
+              About
             </button>
             <button 
               onClick={() => scrollToSection('skills')}
-              className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
+              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg"
             >
-              <span className="relative z-10">Skills</span>
-              <span className="absolute inset-0 bg-muted rounded-md scale-0 group-hover:scale-100 transition-transform duration-200 ease-out"></span>
+              Skills
             </button>
             <button 
               onClick={() => scrollToSection('experience')}
-              className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
+              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg"
             >
-              <span className="relative z-10">Experience</span>
-              <span className="absolute inset-0 bg-muted rounded-md scale-0 group-hover:scale-100 transition-transform duration-200 ease-out"></span>
+              Experience
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
+              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg"
             >
-              <span className="relative z-10">Projects</span>
-              <span className="absolute inset-0 bg-muted rounded-md scale-0 group-hover:scale-100 transition-transform duration-200 ease-out"></span>
+              Projects
+            </button>
+            <button 
+              onClick={() => scrollToSection('blog')}
+              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg"
+            >
+              Blogs
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group"
+              className="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg"
             >
-              <span className="relative z-10">Contact</span>
-              <span className="absolute inset-0 bg-muted rounded-md scale-0 group-hover:scale-100 transition-transform duration-200 ease-out"></span>
+              Contact
             </button>
             <Button
               variant="ghost"

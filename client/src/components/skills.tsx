@@ -1,44 +1,52 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { 
+  SiPython, SiTypescript, SiJavascript, SiKotlin,
+  SiReact, SiFlutter, SiNextdotjs, SiTailwindcss,
+  SiNodedotjs, SiFastapi, SiSpring, SiExpress,
+  SiPostgresql, SiMongodb, SiRedis, SiMysql,
+  SiAmazon, SiDocker, SiKubernetes, SiGithubactions,
+  SiGit, SiFigma, SiPostman, SiJira
+} from "react-icons/si";
+import { Coffee } from "lucide-react";
 
 const skillsData = {
   "Programming Languages": [
-    { name: "Python", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
-    { name: "TypeScript", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
-    { name: "Java", color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300" },
-    { name: "Kotlin", color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300" },
-    { name: "JavaScript", color: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300" },
+    { name: "Python", icon: SiPython, iconColor: "text-blue-500" },
+    { name: "TypeScript", icon: SiTypescript, iconColor: "text-blue-600" },
+    { name: "Java", icon: Coffee, iconColor: "text-red-500" },
+    { name: "Kotlin", icon: SiKotlin, iconColor: "text-purple-500" },
+    { name: "JavaScript", icon: SiJavascript, iconColor: "text-yellow-500" },
   ],
   "Frontend & Mobile": [
-    { name: "React", color: "bg-cyan-100 text-cyan-800 dark:bg-cyan-900 dark:text-cyan-300" },
-    { name: "Flutter", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
-    { name: "Next.js", color: "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300" },
-    { name: "Tailwind CSS", color: "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-300" },
+    { name: "React", icon: SiReact, iconColor: "text-cyan-500" },
+    { name: "Flutter", icon: SiFlutter, iconColor: "text-blue-500" },
+    { name: "Next.js", icon: SiNextdotjs, iconColor: "text-gray-800 dark:text-gray-200" },
+    { name: "Tailwind CSS", icon: SiTailwindcss, iconColor: "text-teal-500" },
   ],
   "Backend & APIs": [
-    { name: "Node.js", color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300" },
-    { name: "FastAPI", color: "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-300" },
-    { name: "Spring Boot", color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300" },
-    { name: "Express.js", color: "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300" },
+    { name: "Node.js", icon: SiNodedotjs, iconColor: "text-green-500" },
+    { name: "FastAPI", icon: SiFastapi, iconColor: "text-emerald-500" },
+    { name: "Spring Boot", icon: SiSpring, iconColor: "text-green-600" },
+    { name: "Express.js", icon: SiExpress, iconColor: "text-gray-700 dark:text-gray-300" },
   ],
   "Databases": [
-    { name: "PostgreSQL", color: "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-300" },
-    { name: "MongoDB", color: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300" },
-    { name: "Redis", color: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300" },
-    { name: "MySQL", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
+    { name: "PostgreSQL", icon: SiPostgresql, iconColor: "text-blue-600" },
+    { name: "MongoDB", icon: SiMongodb, iconColor: "text-green-600" },
+    { name: "Redis", icon: SiRedis, iconColor: "text-red-500" },
+    { name: "MySQL", icon: SiMysql, iconColor: "text-blue-500" },
   ],
   "Cloud & DevOps": [
-    { name: "AWS", color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300" },
-    { name: "Docker", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
-    { name: "Kubernetes", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
-    { name: "GitHub Actions", color: "bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300" },
+    { name: "AWS", icon: SiAmazon, iconColor: "text-orange-500" },
+    { name: "Docker", icon: SiDocker, iconColor: "text-blue-500" },
+    { name: "Kubernetes", icon: SiKubernetes, iconColor: "text-blue-600" },
+    { name: "GitHub Actions", icon: SiGithubactions, iconColor: "text-gray-800 dark:text-gray-200" },
   ],
   "Tools & Technologies": [
-    { name: "Git", color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300" },
-    { name: "Figma", color: "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300" },
-    { name: "Postman", color: "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-300" },
-    { name: "Jira", color: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300" },
+    { name: "Git", icon: SiGit, iconColor: "text-orange-600" },
+    { name: "Figma", icon: SiFigma, iconColor: "text-purple-500" },
+    { name: "Postman", icon: SiPostman, iconColor: "text-orange-500" },
+    { name: "Jira", icon: SiJira, iconColor: "text-blue-600" },
   ],
 };
 
@@ -65,13 +73,14 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               viewport={{ once: true }}
+              whileHover={{ y: -8 }}
             >
-              <Card className="h-full shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <CardHeader>
+              <Card className="h-full shadow-lg hover:shadow-2xl transition-all duration-300 border-0 bg-card/80 backdrop-blur-sm">
+                <CardHeader className="pb-4">
                   <CardTitle className="text-lg font-semibold text-foreground">{category}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="grid grid-cols-2 gap-4">
                     {skills.map((skill, skillIndex) => (
                       <motion.div
                         key={skill.name}
@@ -79,13 +88,15 @@ export default function Skills() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3, delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
                         viewport={{ once: true }}
+                        whileHover={{ scale: 1.05 }}
+                        className="flex flex-col items-center p-3 rounded-lg bg-muted/50 hover:bg-muted/80 transition-all duration-200 cursor-pointer group"
                       >
-                        <Badge 
-                          variant="secondary" 
-                          className={`${skill.color} font-medium hover:scale-105 transition-transform duration-200`}
-                        >
+                        <div className={`mb-2 transition-colors duration-200 group-hover:scale-110 ${skill.iconColor}`}>
+                          <skill.icon className="w-8 h-8" />
+                        </div>
+                        <span className="text-sm font-medium text-foreground text-center leading-tight">
                           {skill.name}
-                        </Badge>
+                        </span>
                       </motion.div>
                     ))}
                   </div>
