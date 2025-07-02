@@ -55,8 +55,8 @@ export default function Experience() {
 
         <div className="max-w-4xl mx-auto">
           <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border"></div>
+            {/* Timeline line (desktop only) */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
 
             {experienceData.map((exp, index) => (
               <motion.div
@@ -67,14 +67,15 @@ export default function Experience() {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
+                {/* Timeline circle (desktop only) */}
                 <motion.div 
-                  className="absolute left-6 w-5 h-5 bg-primary rounded-full border-4 border-background shadow-lg"
+                  className="absolute left-6 w-5 h-5 bg-primary rounded-full border-4 border-background shadow-lg hidden md:block"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   transition={{ duration: 0.4, delay: index * 0.2 + 0.3 }}
                   viewport={{ once: true }}
                 ></motion.div>
-                <div className="ml-20">
+                <div className="md:ml-20">
                   <Card className="shadow-lg hover:shadow-xl transition-shadow duration-300">
                     <CardContent className="p-8">
                       <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
