@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { Mail, Linkedin, Github, Twitter, PenTool } from "lucide-react";
+import { Mail, Linkedin, Github, PenTool } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -39,7 +39,7 @@ export default function Contact() {
     setIsSubmitting(true);
     try {
       await apiRequest("POST", "/api/contact", data);
-      trackEvent('contact_form_submit', 'engagement', 'contact_form');
+      trackEvent('contact_form_submit', { category: 'engagement', label: 'contact_form' });
       toast({
         title: "Message sent successfully!",
         description: "Thank you for reaching out. I'll get back to you soon.",
@@ -58,33 +58,21 @@ export default function Contact() {
 
   const socialLinks = [
     { 
-      href: "mailto:alex@example.com", 
+      href: "mailto:rsah@colgate.edu", 
       icon: Mail, 
       label: "Email",
       color: "hover:bg-primary hover:text-primary-foreground"
     },
     { 
-      href: "https://linkedin.com/in/alexthompson", 
+      href: "https://linkedin.com/in/raghavrajsah", 
       icon: Linkedin, 
       label: "LinkedIn",
       color: "hover:bg-primary hover:text-primary-foreground"
     },
     { 
-      href: "https://github.com/alexthompson", 
+      href: "https://github.com/raghavrajsah", 
       icon: Github, 
       label: "GitHub",
-      color: "hover:bg-primary hover:text-primary-foreground"
-    },
-    { 
-      href: "https://twitter.com/alexthompson", 
-      icon: Twitter, 
-      label: "Twitter",
-      color: "hover:bg-primary hover:text-primary-foreground"
-    },
-    { 
-      href: "https://blog.alexthompson.dev", 
-      icon: PenTool, 
-      label: "Blog",
       color: "hover:bg-primary hover:text-primary-foreground"
     },
   ];
@@ -120,7 +108,7 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 * index }}
                 viewport={{ once: true }}
-                onClick={() => trackEvent('social_link_click', 'engagement', link.label)}
+                onClick={() => trackEvent('social_link_click', { category: 'engagement', label: link.label })}
               >
                 <link.icon className="w-6 h-6" />
               </motion.a>
@@ -135,86 +123,9 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <Input 
-                            placeholder="Your Name" 
-                            className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all" 
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormControl>
-                          <Input 
-                            type="email"
-                            placeholder="Your Email" 
-                            className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all" 
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-                <FormField
-                  control={form.control}
-                  name="subject"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Input 
-                          placeholder="Subject" 
-                          className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormControl>
-                        <Textarea 
-                          rows={5}
-                          placeholder="Your Message" 
-                          className="w-full px-4 py-3 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <Button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all shadow-lg"
-                  size="lg"
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </form>
-            </Form>
+            <div className="bg-muted/60 border border-border rounded-lg p-8 text-center text-lg font-semibold text-foreground shadow-md">
+              Email: <a href="mailto:rsah@colgate.edu" className="text-primary underline">rsah@colgate.edu</a>
+            </div>
           </motion.div>
         </motion.div>
       </div>

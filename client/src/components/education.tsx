@@ -5,19 +5,21 @@ import { GraduationCap, University } from "lucide-react";
 
 const educationData = [
   {
-    degree: "Master of Science in Computer Science",
-    institution: "Stanford University",
-    honors: "Summa Cum Laude • GPA: 3.9/4.0",
-    description: "Specialized in Machine Learning and Distributed Systems. Thesis: \"Optimizing Neural Network Performance in Edge Computing Environments\"",
-    dates: "2019 - 2021",
+    degree: "Bachelor's degree, Computer Science and Mathematical Economics",
+    institution: "Colgate University",
+    logo: "/colgate-logo.png",
+    honors: "Full-ride Merit Scholarship ($400k+)",
+    description: "Relevant Coursework: Data Structures & Algorithms, Object Oriented Programming (OOP), Operating Systems, Natural Language Processing (NLP), Deep Learning, Data Science, Mobile App Development",
+    dates: "Aug 2022 - 2026",
     icon: GraduationCap,
   },
   {
-    degree: "Bachelor of Science in Software Engineering",
-    institution: "UC Berkeley",
-    honors: "Magna Cum Laude • Dean's List • Computer Science Honor Society",
-    description: "Focus on full-stack development, algorithms, and software architecture. Senior project: E-commerce platform serving 10,000+ users",
-    dates: "2015 - 2019",
+    degree: "Study Abroad in CS & Math",
+    institution: "AIT-Budapest",
+    logo: "/ait-budapest-logo.png",
+    honors: "Courses: Applied Cryptography (A+), Deep Learning (A+), Mobile Software Development (A)",
+    description: "Study Abroad in CS & Math",
+    dates: "Jan 2025 - May 2025",
     icon: University,
   },
 ];
@@ -51,13 +53,13 @@ export default function Education() {
                 <CardContent className="p-8">
                   <div className="flex flex-col md:flex-row md:items-center justify-between">
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-foreground mb-2">{edu.degree}</h3>
                       <div className="flex items-center gap-3 mb-2">
-                        <div className="p-2 bg-primary/10 rounded-lg">
-                          <edu.icon className="w-5 h-5 text-primary" />
+                        <div className="flex items-center gap-2">
+                          <img src={edu.logo} alt={edu.institution + ' logo'} className="w-10 h-10 object-contain rounded-md bg-white border border-gray-200" />
+                          <span className="text-2xl font-bold text-primary">{edu.institution}</span>
                         </div>
-                        <p className="text-lg text-primary font-semibold">{edu.institution}</p>
                       </div>
+                      <h3 className="text-xl font-semibold text-foreground mb-2">{edu.degree}</h3>
                       <p className="text-muted-foreground mb-4">{edu.honors}</p>
                       <p className="text-muted-foreground">{edu.description}</p>
                     </div>

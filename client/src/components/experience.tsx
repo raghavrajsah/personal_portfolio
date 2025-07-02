@@ -5,25 +5,36 @@ import { Building2, Zap, Rocket } from "lucide-react";
 
 const experienceData = [
   {
-    role: "Senior Full-Stack Engineer",
-    company: "TechFlow Solutions",
-    dates: "2022 - Present",
-    impact: "Led development of microservices architecture that improved system performance by 40% and reduced deployment time from 2 hours to 15 minutes.",
-    icon: Building2,
+    role: "Software Engineering Intern (AI/ML)",
+    company: "Ozeki Technologies",
+    logo: "/ozeki-logo.png",
+    dates: "June 2025 – Aug 2025",
+    location: "San Francisco, CA",
+    description: "Ozeki builds AI-powered software to automate business negotiations, helping companies close better agreements faster. Its platform streamlines how teams strategize, negotiate, and evaluate contracts using large language models and custom reasoning agents."
   },
   {
-    role: "Machine Learning Engineer",
-    company: "DataVision AI",
-    dates: "2021 - 2022",
-    impact: "Built predictive models that increased customer retention by 25% and developed real-time recommendation systems serving 1M+ daily users.",
-    icon: Zap,
+    role: "Software Engineering Intern",
+    company: "Celest.Dev (Y Combinator)",
+    logo: "/celest-logo.png",
+    dates: "May 2024 – Aug 2024",
+    location: "San Francisco, CA",
+    description: "Celest is a Y Combinator startup that provides backend-as-a-service for Flutter and Dart developers, providing powerful tools that help mobile engineers become full-stack developers. Its flagship feature, 'Cloud Widgets,' allows developers to declaratively define backend services and infrastructure directly in Dart."
   },
   {
-    role: "Frontend Developer",
-    company: "StartupLab Inc",
-    dates: "2019 - 2021",
-    impact: "Transformed user experience with React redesign, achieving 60% improvement in user engagement and 35% increase in conversion rates.",
-    icon: Rocket,
+    role: "Software Engineering Intern",
+    company: "ITS Research Computing and Data Services",
+    logo: "/colgate-logo.png",
+    dates: "June 2023 – Aug 2023",
+    location: "Hamilton, NY",
+    description: "The ITS Research Computing and Data Services team at Colgate University supports faculty, staff, and students in conducting computational research by providing infrastructure, tools, and expertise for managing scientific and data-intensive workflows."
+  },
+  {
+    role: "Software Developer & Lead Researcher",
+    company: "Incubate Nepal",
+    logo: "/incubate-logo.png",
+    dates: "Jul 2021 – Feb 2022",
+    location: "Nepal",
+    description: "Incubate Nepal is an innovation hub supporting research projects in Nepal."
   },
 ];
 
@@ -39,7 +50,7 @@ export default function Experience() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold text-foreground mb-4">Professional Experience</h2>
-          <p className="text-xl text-muted-foreground">Building impactful solutions across different industries</p>
+          <p className="text-xl text-muted-foreground">Building real-world software that scales</p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
@@ -70,17 +81,16 @@ export default function Experience() {
                         <div>
                           <h3 className="text-2xl font-bold text-foreground mb-1">{exp.role}</h3>
                           <div className="flex items-center gap-3">
-                            <div className="p-2 bg-primary/10 rounded-lg">
-                              <exp.icon className="w-5 h-5 text-primary" />
-                            </div>
+                            <img src={exp.logo} alt={exp.company + ' logo'} className="w-8 h-8 object-contain rounded bg-white border border-gray-200" />
                             <p className="text-lg text-primary font-semibold">{exp.company}</p>
+                            <span className="text-sm text-muted-foreground ml-2">{exp.location}</span>
                           </div>
                         </div>
                         <Badge variant="secondary" className="text-sm font-medium px-4 py-2 mt-2 md:mt-0">
                           {exp.dates}
                         </Badge>
                       </div>
-                      <p className="text-muted-foreground leading-relaxed">{exp.impact}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{exp.description}</p>
                     </CardContent>
                   </Card>
                 </div>

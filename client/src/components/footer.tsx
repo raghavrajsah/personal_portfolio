@@ -4,15 +4,13 @@ import { trackEvent } from "@/lib/analytics";
 
 export default function Footer() {
   const socialLinks = [
-    { href: "mailto:alex@example.com", icon: Mail, label: "Email" },
-    { href: "https://linkedin.com/in/alexthompson", icon: Linkedin, label: "LinkedIn" },
-    { href: "https://github.com/alexthompson", icon: Github, label: "GitHub" },
-    { href: "https://twitter.com/alexthompson", icon: Twitter, label: "Twitter" },
-    { href: "https://blog.alexthompson.dev", icon: PenTool, label: "Blog" },
+    { href: "mailto:rsah@colgate.edu", icon: Mail, label: "Email" },
+    { href: "https://linkedin.com/in/raghavrajsah", icon: Linkedin, label: "LinkedIn" },
+    { href: "https://github.com/raghavrajsah", icon: Github, label: "GitHub" },
   ];
 
   const handleSocialClick = (label: string) => {
-    trackEvent('footer_social_click', 'engagement', label);
+    trackEvent('footer_social_click', { category: 'engagement', label });
   };
 
   return (
@@ -43,7 +41,7 @@ export default function Footer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 * index }}
                 viewport={{ once: true }}
-                onClick={() => handleSocialClick(link.label)}
+                onClick={() => trackEvent('social_link_click', { category: 'engagement', label: link.label })}
               >
                 <link.icon className="w-5 h-5" />
               </motion.a>
@@ -57,17 +55,7 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            © 2023 Alex Thompson. All rights reserved.
-          </motion.p>
-          
-          <motion.p 
-            className="text-muted-foreground/60 text-sm"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            viewport={{ once: true }}
-          >
-            Built with React and Tailwind CSS • Deployed on Vercel
+            © 2025 Raghav Raj Sah. All rights reserved.
           </motion.p>
         </motion.div>
       </div>

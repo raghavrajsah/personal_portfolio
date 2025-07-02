@@ -7,20 +7,36 @@ import { useState, useEffect } from "react";
 import profileImage from "@assets/IMG_6417_1751378252912.jpg";
 
 export default function Hero() {
-  const roles = ["Full-Stack Engineer", "ML Builder", "Startup Optimist"];
+  const roles = ["Software Engineer", "AI/ML Developer", "Systems Builder","Problem Solver", "Technology Builder", "Innovation Engineer"];
+
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [typedName, setTypedName] = useState("");
+  const fullName = "Raghav R. Sah";
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
     }, 3000); // Change role every 3 seconds
 
-    return () => clearInterval(interval);
+    let current = 0;
+    setTypedName("");
+    const type = () => {
+      if (current <= fullName.length) {
+        setTypedName(fullName.slice(0, current));
+        current++;
+        setTimeout(type, 130); // Adjust speed here (ms per character)
+      }
+    };
+    type();
+
+    return () => {
+      clearInterval(interval);
+    };
   }, [roles.length]);
 
   const handleDownloadCV = async () => {
     try {
-      trackEvent("download_cv", "engagement", "hero_button");
+      trackEvent("download_cv", { category: "engagement", label: "hero_button" });
       // In a real implementation, this would trigger the actual download
       console.log("CV download requested");
     } catch (error) {
@@ -40,7 +56,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="pt-32 pb-16 px-6">
+    <section id="hero" className="pt-40 pb-16 px-6">
       <div className="max-w-5xl mx-auto">
         <motion.div
           className="text-center"
@@ -50,8 +66,8 @@ export default function Hero() {
         >
           <motion.img
             src={profileImage}
-            alt="Alex Thompson headshot"
-            className="w-32 h-32 rounded-full mx-auto mb-6 shadow-lg object-cover"
+            alt="Raghav Raj Sah headshot"
+            className="w-40 h-40 rounded-full mx-auto mb-8 shadow-lg object-cover"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -63,11 +79,11 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            Raghav R. Sah
+            {typedName}
           </motion.h1>
 
           <motion.div
-            className="text-lg md:text-xl text-muted-foreground mb-6 max-w-2xl mx-auto h-8"
+            className="text-lg md:text-xl text-muted-foreground mb-6 max-w-2xl mx-auto h-8 flex justify-center items-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}

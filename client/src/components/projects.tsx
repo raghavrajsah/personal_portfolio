@@ -7,52 +7,52 @@ import { trackEvent } from "@/lib/analytics";
 
 const projectsData = [
   {
-    title: "E-Commerce Platform",
-    description: "Full-stack marketplace with advanced search, real-time inventory, and integrated payments. Handles 50K+ monthly transactions.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-    tech: ["React", "Node.js", "PostgreSQL"],
-    github: "#",
-    demo: "#",
+    title: "BiscuitBuddy.io – UCLA Hackathon MVP",
+    description: "Production-ready voice assistant MVP built in 36 hours at UCLA hackathon, scaling to 10,000+ daily users with 95% speech recognition accuracy and 30% latency reduction.",
+    image: "/biscuitbuddy.png",
+    tech: ["Unity 3D", "FastAPI", "Python/Gemini AI"],
+    demo: "https://biscuitbuddy.io/",
+    github: null,
   },
   {
-    title: "ML Analytics Dashboard",
-    description: "Real-time analytics platform with predictive models and interactive visualizations. Processes 1M+ data points daily.",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-    tech: ["Python", "FastAPI", "TensorFlow"],
-    github: "#",
-    demo: "#",
+    title: "Art Hub Nepal",
+    description: "Interactive cultural heritage platform documenting Nepali public artworks including paintings, murals, sculptures, and architecture. Features an intuitive map interface connecting local artists with society to bridge the gap between traditional art and modern accessibility.",
+    image: "/arthubnepal.png",
+    tech: ["React", "Node.js", "MongoDB"],
+    demo: "https://www.arthubnepal.com/",
+    github: null,
   },
   {
-    title: "Task Management App",
-    description: "Cross-platform mobile app with offline sync, team collaboration, and smart notifications. 10K+ active users.",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-    tech: ["Flutter", "Firebase", "Dart"],
-    github: "#",
-    demo: "#",
+    title: "NIST Compliance Research (Higher Ed)",
+    description: "Automated cybersecurity compliance scanner analyzing 3,000+ university web pages against NIST 800-53 standards, generating actionable gap analysis reports for institutional security improvements.",
+    image: "/nist.png",
+    tech: ["Python", "Scrapy", "Playwright"],
+    demo: null,
+    github: "https://github.com/raghavrajsah",
   },
   {
-    title: "DevOps Pipeline",
-    description: "Automated CI/CD pipeline with containerized deployments, monitoring, and auto-scaling. Reduced deployment time by 85%.",
-    image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-    tech: ["Docker", "AWS", "Kubernetes"],
-    github: "#",
-    demo: "#",
+    title: "Adaptive Spam Filter – NLP Final Project",
+    description: "Multi-language spam detection system with severity classification and continuous learning capabilities, featuring user feedback integration for model retraining and explainable AI components.",
+    image: "/spamfilter.png",
+    tech: ["Python", "scikit-learn", "spaCy"],
+    demo: null,
+    github: "https://github.com/raghavrajsah/AdaptiveSpamFilter-NLP",
   },
   {
-    title: "Blockchain Trading Platform",
-    description: "Decentralized trading platform with smart contracts, real-time price feeds, and wallet integration. $2M+ in transactions.",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-    tech: ["Solidity", "Web3.js", "Ethereum"],
-    github: "#",
-    demo: "#",
+    title: "Cryptocurrency Price Forecasting System",
+    description: "Hybrid ML model combining LSTM, ARIMA, and XGBoost achieving 85% accuracy in crypto price prediction, processing 1M+ social media posts for sentiment analysis with real-time inference capabilities.",
+    image: "/crypto.png",
+    tech: ["TensorFlow/Keras", "XGBoost", "ARIMA"],
+    demo: null,
+    github: "https://github.com/Khik2219/Cryptocurrency-Price-Forecasting-Using-Hybrid-Models",
   },
   {
-    title: "Social Networking App",
-    description: "Real-time social platform with video calls, messaging, and content sharing. 100K+ registered users across 15 countries.",
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=300",
-    tech: ["React Native", "Socket.io", "MongoDB"],
-    github: "#",
-    demo: "#",
+    title: "Aerial Object Detection System",
+    description: "High-performance computer vision system achieving 85% mAP at 100 FPS using Faster R-CNN for drone-based search and rescue operations, reducing search grid coverage by 40%.",
+    image: "/aerial.png",
+    tech: ["Python", "PyTorch", "OpenCV"],
+    demo: null,
+    github: "https://github.com/raghavrajsah",
   },
 ];
 
@@ -79,14 +79,14 @@ const techColors: Record<string, string> = {
 
 export default function Projects() {
   const handleProjectClick = (projectTitle: string, linkType: 'github' | 'demo') => {
-    trackEvent('project_link_click', 'engagement', `${projectTitle}_${linkType}`);
+    trackEvent('project_link_click', { category: 'engagement', label: `${projectTitle}_${linkType}` });
   };
 
   return (
     <section id="projects" className="py-20 bg-card">
       <div className="max-w-6xl mx-auto px-6">
         <motion.div 
-          className="text-center mb-16"
+          className="mb-16 text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -113,7 +113,7 @@ export default function Projects() {
                     className="w-full h-48 object-cover"
                   />
                 </motion.div>
-                <CardContent className="p-6">
+                <CardContent className="p-6 flex-1 flex flex-col justify-between">
                   <h3 className="text-xl font-bold text-foreground mb-3">{project.title}</h3>
                   <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -128,24 +128,34 @@ export default function Projects() {
                     ))}
                   </div>
                   <div className="flex space-x-4">
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={() => handleProjectClick(project.title, 'github')}
-                      className="text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                    >
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={() => handleProjectClick(project.title, 'demo')}
-                      className="text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
-                    </Button>
+                    {project.github && (
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        onClick={() => handleProjectClick(project.title, 'github')}
+                        className="text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                        asChild
+                      >
+                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-4 h-4 mr-2" />
+                          Code
+                        </a>
+                      </Button>
+                    )}
+                    {project.demo && (
+                      <Button 
+                        variant="outline" 
+                        size="sm"
+                        onClick={() => handleProjectClick(project.title, 'demo')}
+                        className="text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                        asChild
+                      >
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Demo
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>

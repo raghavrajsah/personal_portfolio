@@ -38,7 +38,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     // In a real implementation, you would serve the actual CV file
     res.json({ 
       success: true, 
-      downloadUrl: "/cv/alex-thompson-cv.pdf",
+      downloadUrl: "/cv/raghav-raj-sah-cv.pdf",
       message: "CV download ready" 
     });
   });
