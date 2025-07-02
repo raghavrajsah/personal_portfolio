@@ -8,7 +8,7 @@ This is the personal portfolio website of Raghav Raj Sah, showcasing education, 
 - Smooth navigation and animations
 - Contact via email
 
-## Getting Started
+## Getting Started  
 
 ### Prerequisites
 - Node.js (v18 or higher recommended)
