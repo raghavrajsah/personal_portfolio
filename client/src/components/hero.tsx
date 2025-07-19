@@ -6,6 +6,8 @@ import { SiGithub, SiLinkedin } from "react-icons/si";
 import { useState, useEffect } from "react";
 import profileImage from "@assets/IMG_6417_1751378252912.jpg";
 
+
+
 export default function Hero() {
   const roles = ["Software Engineer", "AI/ML Developer", "Systems Builder","Problem Solver", "Technology Builder", "Innovation Engineer"];
 
@@ -136,6 +138,14 @@ export default function Hero() {
               className="p-2 bg-muted hover:bg-muted/80 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-md"
             >
               <SiLinkedin className="w-5 h-5 text-foreground" />
+            </a>
+            <a
+              href="https://www.ycombinator.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-muted hover:bg-muted/80 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-md"
+            >
+              <img src="/yc-logo.png" alt="Y Combinator" className="w-5 h-5 object-contain" />
             </a>
           </motion.div>
 
