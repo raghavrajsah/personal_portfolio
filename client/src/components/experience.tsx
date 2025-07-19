@@ -5,7 +5,7 @@ import { Building2, Zap, Rocket } from "lucide-react";
 
 const experienceData = [
   {
-    role: "Software Engineering Intern (AI/ML)",
+    role: "Software Engineering  (AI/ML)",
     company: "Ozeki Technologies",
     logo: "/ozeki-logo.png",
     dates: "June 2025 – Aug 2025",
@@ -13,7 +13,7 @@ const experienceData = [
     description: "Ozeki builds AI-powered software to automate business negotiations, helping companies close better agreements faster. Its platform streamlines how teams strategize, negotiate, and evaluate contracts using large language models and custom reasoning agents."
   },
   {
-    role: "Software Engineering Intern",
+    role: "Software Engineering ",
     company: "Celest.Dev (Y Combinator)",
     logo: "/celest-logo.png",
     dates: "May 2024 – Aug 2024",
