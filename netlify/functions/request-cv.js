@@ -1,7 +1,8 @@
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event, context) => {
-  // Enable CORS
+  console.log('Function called with event:', JSON.stringify(event, null, 2));
+  
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
@@ -29,6 +30,7 @@ exports.handler = async (event, context) => {
   try {
     // Parse the request body
     const { email } = JSON.parse(event.body);
+    console.log('Received email:', email);
 
     // Validate email
     if (!email || !email.includes('@')) {
@@ -43,6 +45,9 @@ exports.handler = async (event, context) => {
     }
 
     // Check if environment variables are set
+    console.log('EMAIL_USER:', process.env.EMAIL_USER ? 'Set' : 'Not set');
+    console.log('EMAIL_PASS:', process.env.EMAIL_PASS ? 'Set' : 'Not set');
+    
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
       console.error('Email credentials not configured');
       return {
@@ -61,10 +66,7 @@ exports.handler = async (event, context) => {
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
-      },
-      connectionTimeout: 60000,
-      greetingTimeout: 30000,
-      socketTimeout: 60000,
+      }
     });
 
     // Email content
@@ -104,14 +106,15 @@ exports.handler = async (event, context) => {
     };
 
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Error in function:', error);
     
     return {
       statusCode: 500,
       headers,
       body: JSON.stringify({ 
         success: false, 
-        message: 'Failed to send CV request. Please try again.' 
+        message: 'Failed to send CV request. Please try again.',
+        error: error.message
       })
     };
   }
