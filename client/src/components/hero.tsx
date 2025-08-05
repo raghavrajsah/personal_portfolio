@@ -167,6 +167,14 @@ export default function Hero() {
             >
               <img src="/yc-logo.png" alt="Y Combinator" className="w-5 h-5 object-contain" />
             </a>
+            <a
+              href="https://neo.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 bg-muted hover:bg-muted/80 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-md"
+            >
+              <img src="/neo.png" alt="Neo" className="w-5 h-5 object-contain" />
+            </a>
           </motion.div>
 
           <motion.div
