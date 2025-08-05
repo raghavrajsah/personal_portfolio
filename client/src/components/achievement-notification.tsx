@@ -95,14 +95,6 @@ export default function AchievementNotification({
                   Read More
                 </a>
               </div>
-              
-              {/* Time remaining indicator */}
-              <div className="mt-3 flex items-center justify-between text-xs">
-                <span className="text-green-100">Time remaining:</span>
-                <span className="font-mono font-semibold">
-                  {Math.floor(timeLeft / 60)}:{(timeLeft % 60).toString().padStart(2, '0')}
-                </span>
-              </div>
             </div>
           </div>
         </motion.div>
