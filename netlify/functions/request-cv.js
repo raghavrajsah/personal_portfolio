@@ -1,10 +1,27 @@
 const nodemailer = require('nodemailer');
 
 exports.handler = async (event, context) => {
+  // Enable CORS
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS'
+  };
+
+  // Handle preflight requests
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers,
+      body: ''
+    };
+  }
+
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
+      headers,
       body: JSON.stringify({ error: 'Method not allowed' })
     };
   }
@@ -17,9 +34,23 @@ exports.handler = async (event, context) => {
     if (!email || !email.includes('@')) {
       return {
         statusCode: 400,
+        headers,
         body: JSON.stringify({ 
           success: false, 
           message: 'Invalid email address' 
+        })
+      };
+    }
+
+    // Check if environment variables are set
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      console.error('Email credentials not configured');
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ 
+          success: false, 
+          message: 'Email service not configured' 
         })
       };
     }
@@ -50,6 +81,8 @@ exports.handler = async (event, context) => {
       </div>
     `;
 
+    console.log('Attempting to send email...');
+
     // Send email
     const info = await transporter.sendMail({
       from: process.env.EMAIL_USER,
@@ -63,6 +96,7 @@ exports.handler = async (event, context) => {
 
     return {
       statusCode: 200,
+      headers,
       body: JSON.stringify({ 
         success: true, 
         message: 'CV request sent successfully!' 
@@ -74,6 +108,7 @@ exports.handler = async (event, context) => {
     
     return {
       statusCode: 500,
+      headers,
       body: JSON.stringify({ 
         success: false, 
         message: 'Failed to send CV request. Please try again.' 
