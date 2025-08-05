@@ -1,11 +1,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, FileText } from "lucide-react";
+import { ArrowRight, FileText, ExternalLink } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { useState, useEffect } from "react";
 import profileImage from "@assets/IMG_6417_1751378252912.jpg";
 import CvRequestForm from "./cv-request-form";
+import AchievementNotification from "./achievement-notification";
 
 export default function Hero() {
   const roles = ["Software Engineer", "AI/ML Developer", "Systems Builder","Problem Solver", "Technology Builder", "Innovation Engineer"];
@@ -13,6 +14,7 @@ export default function Hero() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [typedName, setTypedName] = useState("");
   const [showCvForm, setShowCvForm] = useState(false);
+  const [showAchievement, setShowAchievement] = useState(false);
   const fullName = "Raghav R. Sah";
 
   useEffect(() => {
@@ -31,8 +33,14 @@ export default function Hero() {
     };
     type();
 
+    // Show achievement notification after 1.5 seconds (faster!)
+    const achievementTimer = setTimeout(() => {
+      setShowAchievement(true);
+    }, 1500);
+
     return () => {
       clearInterval(interval);
+      clearTimeout(achievementTimer);
     };
   }, [roles.length]);
 
@@ -43,6 +51,10 @@ export default function Hero() {
 
   const handleCloseCvForm = () => {
     setShowCvForm(false);
+  };
+
+  const handleCloseAchievement = () => {
+    setShowAchievement(false);
   };
 
   const scrollToContact = () => {
@@ -58,6 +70,15 @@ export default function Hero() {
 
   return (
     <section id="hero" className="pt-40 pb-16 px-6">
+      {/* Achievement Notification */}
+      {showAchievement && (
+        <AchievementNotification
+          message="Raghav got selected as Neo Scholars Finalist! 🎉"
+          duration={10}
+          onClose={handleCloseAchievement}
+        />
+      )}
+
       <div className="max-w-5xl mx-auto">
         <motion.div
           className="text-center"
