@@ -1,18 +1,18 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Download, ArrowRight } from "lucide-react";
+import { ArrowRight, FileText } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { useState, useEffect } from "react";
 import profileImage from "@assets/IMG_6417_1751378252912.jpg";
-
-
+import CvRequestForm from "./cv-request-form";
 
 export default function Hero() {
   const roles = ["Software Engineer", "AI/ML Developer", "Systems Builder","Problem Solver", "Technology Builder", "Innovation Engineer"];
 
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [typedName, setTypedName] = useState("");
+  const [showCvForm, setShowCvForm] = useState(false);
   const fullName = "Raghav R. Sah";
 
   useEffect(() => {
@@ -36,14 +36,13 @@ export default function Hero() {
     };
   }, [roles.length]);
 
-  const handleDownloadCV = async () => {
-    try {
-      trackEvent("download_cv", { category: "engagement", label: "hero_button" });
-      // In a real implementation, this would trigger the actual download
-      console.log("CV download requested");
-    } catch (error) {
-      console.error("Download failed:", error);
-    }
+  const handleRequestCV = () => {
+    trackEvent("request_cv_click", { category: "engagement", label: "hero_button" });
+    setShowCvForm(true);
+  };
+
+  const handleCloseCvForm = () => {
+    setShowCvForm(false);
   };
 
   const scrollToContact = () => {
@@ -155,13 +154,35 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.9 }}
           >
-            <Button
-              onClick={handleDownloadCV}
-              className="bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold hover:bg-primary/90 transition-all shadow-md hover:shadow-lg"
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Download CV
-            </Button>
+            <AnimatePresence mode="wait">
+              {showCvForm ? (
+                <motion.div
+                  key="cv-form"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  className="w-full sm:w-auto"
+                >
+                  <CvRequestForm onClose={handleCloseCvForm} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="cv-button"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                >
+                  <Button
+                    onClick={handleRequestCV}
+                    className="bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold hover:bg-primary/90 transition-all shadow-md hover:shadow-lg"
+                  >
+                    <FileText className="w-4 h-4 mr-2" />
+                    Request CV
+                  </Button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            
             <Button
               variant="outline"
               onClick={scrollToContact}

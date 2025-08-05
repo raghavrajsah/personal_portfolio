@@ -9,6 +9,7 @@ A modern, responsive personal portfolio website built with React, TypeScript, an
 - **Easy Customization**: Simple to modify content and styling
 - **Fast Performance**: Optimized with Vite and modern build tools
 - **SEO Ready**: Meta tags and social media previews included
+- **CV Request System**: Visitors can request your CV via email form (Serverless)
 
 ## 🚀 Quick Start
 
@@ -24,7 +25,20 @@ cd replitportfolio
 npm install
 ```
 
-### 3. Start Development Server
+### 3. Configure Email (Optional)
+To enable CV request email notifications, create a `.env` file in the root directory:
+
+```bash
+# Email Configuration
+# For Gmail, you'll need to use an App Password instead of your regular password
+# Generate an App Password: https://myaccount.google.com/apppasswords
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-app-password
+```
+
+**Note**: If email is not configured, CV requests will still be logged to the console but no emails will be sent.
+
+### 4. Start Development Server
 ```bash
 npm run dev
 ```
@@ -42,6 +56,10 @@ Open [http://localhost:5000](http://localhost:5000) to see your portfolio!
 - **Certifications**: Edit `client/src/components/certifications.tsx` with your credentials
 - **Contact**: Update `client/src/components/contact.tsx` with your contact info
 
+### CV Request Configuration
+- **Email Recipient**: Update the email address in `netlify/functions/request-cv.js` (line 47) to receive CV request notifications
+- **Email Service**: Modify the email service configuration in `netlify/functions/request-cv.js` if using a different provider than Gmail
+
 ### Images & Assets
 - Add your profile photo and project images to `client/public/`
 - Update logos and icons as needed
@@ -56,21 +74,33 @@ Open [http://localhost:5000](http://localhost:5000) to see your portfolio!
 
 - **Frontend**: React 18, TypeScript, Vite
 - **Styling**: Tailwind CSS, shadcn/ui components
-- **Backend**: Express.js (for development server)
-- **Deployment**: Ready for Netlify, Vercel, or any static hosting
+- **Backend**: Netlify Functions (Serverless)
+- **Email**: Nodemailer for CV request notifications
+- **Deployment**: Ready for Netlify (Free hosting)
 
 ## 🌐 Deployment
 
-### Netlify (Recommended)
+### Netlify (Recommended - FREE!)
 1. Connect your GitHub repository to Netlify
 2. Set build command: `npm run build`
 3. Set publish directory: `dist/public`
-4. Deploy!
+4. Add environment variables for email configuration:
+   - `EMAIL_USER`: your-email@gmail.com
+   - `EMAIL_PASS`: your-app-password
+5. Deploy!
+
+**Benefits of Netlify Functions:**
+- ✅ **Completely FREE** (125,000 function calls/month)
+- ✅ **No server costs**
+- ✅ **Automatic scaling**
+- ✅ **Global CDN**
+- ✅ **SSL certificates included**
 
 ### Vercel
 1. Import your repository to Vercel
 2. Vercel will auto-detect the build settings
-3. Deploy!
+3. Add environment variables for email configuration if needed
+4. Deploy!
 
 ## 📝 License
 
