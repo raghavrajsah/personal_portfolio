@@ -1,9 +1,20 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building2, Zap, Rocket } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Building2, Zap, Rocket, ExternalLink } from "lucide-react";
 
 const experienceData = [
+  {
+    role: "Neo Scholars Finalist",
+    company: "Neo",
+    logo: "/neo.png",
+    dates: "July 2025 – Present",
+    location: "",
+    description: "Selected as a finalist for Neo Scholars, an elite tech incubator described by Forbes as \"harder to get into than Harvard\" and the \"Ivy League of startup boot camps,\" known for nurturing the most promising young talent in AI and startups.",
+    readMoreLink: "https://www.forbes.com/sites/richardnieva/2025/04/16/this-tech-incubator-is-harder-to-get-into-than-harvard/",
+    neoWebsite: "https://neo.com"
+  },
   {
     role: "Software Engineering  (AI/ML)",
     company: "Ozeki Technologies",
@@ -91,7 +102,29 @@ export default function Experience() {
                           {exp.dates}
                         </Badge>
                       </div>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{exp.description}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-4">{exp.description}</p>
+                      {exp.readMoreLink && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="text-xs"
+                          onClick={() => window.open(exp.readMoreLink, '_blank', 'noopener,noreferrer')}
+                        >
+                          <ExternalLink className="w-3 h-3 mr-1" />
+                          Read More
+                        </Button>
+                      )}
+                      {exp.neoWebsite && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="text-xs ml-2"
+                          onClick={() => window.open(exp.neoWebsite, '_blank', 'noopener,noreferrer')}
+                        >
+                          <Building2 className="w-3 h-3 mr-1" />
+                          Visit Website
+                        </Button>
+                      )}
                     </CardContent>
                   </Card>
                 </div>
