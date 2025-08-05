@@ -16,8 +16,7 @@ A modern, responsive personal portfolio website built with React, TypeScript, an
 ### 1. Fork & Clone
 ```bash
 # Fork this repository first, then:
-git clone https://github.com/YOUR_USERNAME/replitportfolio.git
-cd replitportfolio
+git clone https://github.com/raghavrajsah/personal_portfolio.git
 ```
 
 ### 2. Install Dependencies
